@@ -35,6 +35,9 @@ gem 'magnific-popup-rails', '~> 1.1.0'
 # Use simple_form for better form input
 gem 'simple_form'
 
+# Open letter on web
+gem 'letter_opener', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
