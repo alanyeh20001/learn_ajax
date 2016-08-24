@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use devise to perform authentication
 gem 'devise'
 
+# For debugging usage
+gem 'awesome_rails_console'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
