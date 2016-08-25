@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824154803) do
+ActiveRecord::Schema.define(version: 20160824161517) do
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160824154803) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "phone"
+    t.string   "unconfirmed_email"
   end
 
   add_index "members", ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true
