@@ -1,0 +1,9 @@
+zh-TW:
+  activerecord:
+    attributes:
+      member:
+        email: "E-mail"
+        name: "姓名"
+        phone: "手機"
+        password: "密碼"
+        password_confirmation: "密碼確認"
