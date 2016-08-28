@@ -6,7 +6,8 @@
 <a class="popup-modal" href="#test-modal">註冊</a>
 
 <div id="test-modal" class="white-popup-block mfp-hide" style="background:white;">
-  <%= simple_form_for Member.new, as: :member, url: member_registration_path do |f| %>
+  <div class="alert_info"></div>
+  <%= simple_form_for Member.new, as: :member, url: member_registration_path, html: { id: "registration_form" }, remote: true, format: :json do |f| %>
     <%= f.input :email %>
     <%= f.input :name %>
     <%= f.input :phone %>
@@ -18,3 +19,8 @@
   <% end %>
   <p><a class="popup-modal-dismiss" href="#">&times;</a></p>
 </div>
+<br>
+<br>
+<hr>
+<p>原本註冊</p>
+<%= link_to "註冊", new_member_registration_path %>
