@@ -38,6 +38,9 @@ gem 'simple_form'
 # Open letter on web
 gem 'letter_opener', group: :development
 
+# zh-TW i18n
+gem 'rails-i18n'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
