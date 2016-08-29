@@ -21,7 +21,7 @@ $(document).on("submit", "#registration_form", function(e) {
 
   for (var key in data.responseJSON) {
     console.log(key, data.responseJSON[key])
-    $(".alert_info").append("<p>"+key+" "+data.responseJSON[key][0]+"</p>");
+    $(".alert_info").append("<p>"+data.responseJSON[key]+"</p>");
     $(".alert_info").css("background-color", "#F88E8B");
   }
 });

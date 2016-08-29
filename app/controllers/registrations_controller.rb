@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
 
       respond_to do |format|
-        format.json { render :json => resource.errors, :status => :unprocessable_entity }
+        format.json { render :json => resource.errors.full_messages, :status => :unprocessable_entity }
         format.html { respond_with resource }
       end
     end
