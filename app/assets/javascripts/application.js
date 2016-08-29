@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require welcome
 //= require magnific-popup
+
+$(function(){
+  $(document).foundation();
+});
