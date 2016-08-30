@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :members, controllers: { registrations: "registrations" }
+
+  get 'welcome/signup', to: 'welcome#signup'
+  get 'welcome/signup_confirm', to: 'welcome#signup_confirm'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
