@@ -21,5 +21,15 @@
 </div>
 <br>
 <hr>
-<a href="#" id="foundation-popup-link">Ajax註冊</a>
+
+<% if member_signed_in? %>
+  <a href="#"><%= current_member.name %></a>
+  <br>
+  <%= link_to "登出", destroy_member_session_path, method: :delete %>
+<% else %>
+  <a href="#" id="foundation-popup-link">Ajax註冊</a>
+  <br>
+  <a href="#" id="login-link">Ajax登入</a>
+<% end %>
+
 <div id="foundation-popup"></div>
