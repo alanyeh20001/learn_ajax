@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
 
   def signup_confirm
   end
+
+  def login
+  end
 end

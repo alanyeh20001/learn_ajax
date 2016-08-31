@@ -48,3 +48,37 @@ $(document).on("submit", "#registration_form", function(e) {
     $(".alert_info").css("background-color", "#F88E8B");
   }
 });
+
+// open foundation login modal
+$(function() {
+  $("#login-link").click(function(event) {
+    event.preventDefault();
+    if ($("#login").length > 0) {
+      $("#login").foundation("open");
+      if($("#forget-password-link").click) {
+        console.log("first")
+        openForgetPassword();
+      }
+    } else {
+      $("#foundation-popup").load("welcome/login #login", function() {
+        login = new Foundation.Reveal($("#login"));
+        login.open();
+      });
+    }
+  });
+});
+
+// submit login form through ajax
+$(document).on("submit", "#login_form", function(e) {
+  $("input[type=submit]").prop("disabled", true);
+}).on("ajax:success", "#login_form", function(e, data, status, xhr) {
+  $("input[type=submit]").prop("disabled", false);
+  $("#login").foundation("close");
+  location.reload();
+}).on("ajax:error", "#login_form", function(e, data, status, xhr) {
+  $("input[type=submit]").prop("disabled", false);
+  $(".alert_info").empty();
+
+  $(".alert_info").append("<p>" + data.responseText + "</p>");
+  $(".alert_info").css("background-color", "#F88E8B");
+});
