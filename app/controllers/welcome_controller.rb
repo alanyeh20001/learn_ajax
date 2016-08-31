@@ -10,4 +10,7 @@ class WelcomeController < ApplicationController
 
   def login
   end
+
+  def forget_password
+  end
 end

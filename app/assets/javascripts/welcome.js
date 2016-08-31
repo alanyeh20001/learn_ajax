@@ -82,3 +82,48 @@ $(document).on("submit", "#login_form", function(e) {
   $(".alert_info").append("<p>" + data.responseText + "</p>");
   $(".alert_info").css("background-color", "#F88E8B");
 });
+
+// Open forget-password modal
+$(document).on("click", "#forget-password-link", function(e) {
+  e.preventDefault();
+  $("#login").foundation("close");
+  if ($("#forget-password").length > 0) {
+    clearAlertMessages();
+    $("#forget-password").foundation("open");
+  } else {
+    $("#foundation-popup").load("welcome/forget_password #forget-password", function() {
+      forget_password = new Foundation.Reveal($("#forget-password"));
+      forget_password.open();
+    })
+  }
+});
+
+// Submit forget-password form through ajax.
+$(document).on("submit", "#forget_password_form", function(e) {
+  e.preventDefault();
+  $("input[type=submit]").prop("disabled", true);
+}).on("ajax:success", "#forget-password", function(e, data, status, xhr) {
+  $("input[type=submit]").prop("disabled", false);
+  console.log("status: " + status)
+  $("#forget-password").foundation("close");
+}).on("ajax:error", "#forget-password", function(e, data, status, xhr) {
+  $("input[type=submit]").prop("disabled", false);
+
+  $(".alert_info").empty().css({ "dispaly": "block", "background-color": "#F88E8B" });
+  $(".alert_info").append("<p>" + data.responseJSON[0] + "</p>");
+});
+
+$(document).on("submit", "#reset_password_form", function(e) {
+
+}).on("ajax:success", "#reset_password", function(e, data, status, xhr) {
+  console.log(data)
+  $(location).attr("href", data.url);
+}).on("ajax:error", "#reset_password", function(e, data, status, xhr) {
+  console.log(data)
+  $(".alert_info").empty().css({ "dispaly": "block", "background-color": "#F88E8B" });
+  $(".alert_info").append("<p>" + data.responseJSON[0] + "</p>");
+});
+
+function clearAlertMessages() {
+  $(".alert_info").empty().css({ display: "none" });
+}
